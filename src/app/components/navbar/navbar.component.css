@@ -1,0 +1,13 @@
+.navigation-icons {
+  margin-left: auto;
+  display: flex;
+  gap: 50px;
+}
+
+.navigation-icons a {
+  color: blanchedalmond;
+}
+
+.navigation-icons .active {
+  color: rgb(228, 148, 0);
+}

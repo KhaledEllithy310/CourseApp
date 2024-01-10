@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <!-- start navigation icons -->
+  <section class="navigation-icons">
+    <button
+      mat-raised-button
+      [routerLink]="['/']"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <fa-icon [icon]="faHome"></fa-icon>
+    </button>
+    <button
+      mat-raised-button
+      [routerLink]="['/courses']"
+      routerLinkActive="active"
+    >
+      <fa-icon [icon]="faTv"></fa-icon>
+    </button>
+    <button
+      mat-raised-button
+      [routerLink]="['/cart']"
+      routerLinkActive="active"
+    >
+      <fa-icon [icon]="faCartShopping"></fa-icon>
+    </button>
+    <button
+      mat-raised-button
+      [routerLink]="['/wishlist']"
+      routerLinkActive="active"
+    >
+      <fa-icon [icon]="faHeart"></fa-icon>
+    </button>
+  </section>
+  <!-- end navigation icons -->
+</mat-toolbar>
