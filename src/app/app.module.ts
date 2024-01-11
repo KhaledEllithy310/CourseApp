@@ -19,6 +19,7 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartListComponent } from './components/cart-list/cart-list.component';
 import { WishItemComponent } from './components/wish-item/wish-item.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
     BrowserAnimationsModule,
     MaterialModule,
     FontAwesomeModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

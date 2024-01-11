@@ -7,6 +7,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Course } from 'src/app/Interfaces/Course';
 import { CartService } from 'src/app/services/cart.service';
+import { WishListService } from 'src/app/services/wish-list.service';
 
 @Component({
   selector: 'app-navbar',
@@ -18,16 +19,27 @@ export class NavbarComponent implements OnInit {
   faTv = faTv;
   faHeart = faHeart;
   faHome = faHome;
-  itemsNumber: number = 0;
+  wishItemsNumber: number = 0;
+  cartItemsNumber: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private wishListService: WishListService
+  ) {}
   ngOnInit(): void {
     this.getCartNumbers();
+    this.getWishNumbers();
   }
 
   getCartNumbers() {
     return this.cartService.getCart().subscribe((res: Course[]) => {
-      this.itemsNumber = res.length;
+      this.cartItemsNumber = res.length;
+    });
+  }
+
+  getWishNumbers() {
+    return this.wishListService.getWish().subscribe((res: Course[]) => {
+      this.wishItemsNumber = res.length;
     });
   }
 }

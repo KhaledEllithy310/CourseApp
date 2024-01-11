@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../Interfaces/Course';
 import { BehaviorSubject } from 'rxjs';
+import { NotifyService } from './notify.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class WishListService {
   private wishItems = new BehaviorSubject<Course[]>([]);
+
+  constructor(private notifyService: NotifyService) {}
 
   addToWish(course: Course) {
     // Logic to add product to wish and update the BehaviorSubject
@@ -15,10 +18,14 @@ export class WishListService {
     );
     // check if the course is already in the wish
     if (isExist) {
-      console.log('this course is already in the wish');
+      this.notifyService.info('this course is already in the wish');
+
       return;
     }
+    // add the course to the wish
     this.wishItems.next([...this.wishItems.value, course]);
+    //show notification to the user that the course was added
+    this.notifyService.success('course added successfully');
     return this.wishItems;
   }
 

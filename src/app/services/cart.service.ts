@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Course } from '../Interfaces/Course';
+import { NotifyService } from './notify.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  constructor() {}
+  constructor(private notifyService: NotifyService) {}
 
   private cartItems = new BehaviorSubject<Course[]>([]);
 
@@ -17,10 +18,13 @@ export class CartService {
     );
     // check if the course is already in the cart
     if (isExist) {
-      console.log('this course is already in the cart');
+      this.notifyService.info('this course is already in the cart');
       return;
     }
+    // add the course to the cart
     this.cartItems.next([...this.cartItems.value, course]);
+    //show notification to the user that the course was added
+    this.notifyService.success('course added successfully');
     return this.cartItems;
   }
 
