@@ -17,7 +17,6 @@ export class CartListComponent {
 
   getCartItems() {
     this.cartService.getCart().subscribe((res) => {
-      console.log(res);
       this.cartItems = res;
     });
   }

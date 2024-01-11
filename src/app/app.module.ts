@@ -17,6 +17,8 @@ import { CoursesListComponent } from './components/courses-list/courses-list.com
 import { CoursesItemComponent } from './components/courses-item/courses-item.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartListComponent } from './components/cart-list/cart-list.component';
+import { WishItemComponent } from './components/wish-item/wish-item.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { CartListComponent } from './components/cart-list/cart-list.component';
     CoursesItemComponent,
     CartItemComponent,
     CartListComponent,
+    WishItemComponent,
+    WishListComponent,
   ],
   imports: [
     BrowserModule,
