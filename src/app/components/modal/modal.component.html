@@ -1,0 +1,10 @@
+<section>
+  <h1 mat-dialog-title>{{ data.title }}</h1>
+  <mat-dialog-content mat-dialog-content>
+    <p>{{ data.massage }}</p>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="false">No Thanks</button>
+    <button mat-button [mat-dialog-close]="true">Ok</button>
+  </mat-dialog-actions>
+</section>
