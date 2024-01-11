@@ -1,1 +1,32 @@
-<p>wish-item works!</p>
+<section class="courses-item">
+  <h2 class="font-bold text-lg truncate" title="{{ wishItem.courseName }}">
+    {{ wishItem.courseName }}
+  </h2>
+  <section class="flex items-center space-x-2 my-2">
+    <!-- <fa-icon [icon]="faUser"></fa-icon> -->
+
+    <p class="text-sm">{{ wishItem.author }}</p>
+  </section>
+  <section class="flex items-center space-x-2">
+    <p class="font-bold">{{ wishItem.actualPrice }}</p>
+    <p
+      class="text-sm font-semibold bg-yellow-400 rounded-full w-fit flex items-center justify-center py-1 px-2"
+    >
+      {{ wishItem.discountPercentage }}
+    </p>
+  </section>
+  <p class="my-1">[{{ wishItem.tags }}]</p>
+  <section class="space-x-2 mt-3">
+    <button
+      class="bg-indigo-600 py-1 px-2 capitalize rounded-md text-white hover:bg-indigo-700 transition-all duration-150"
+      (click)="removeCourseFromCart(wishItem)"
+    >
+      remove
+    </button>
+    <button
+      class="bg-red-600 py-1 px-2 capitalize rounded-md text-white hover:bg-red-700 transition-all duration-150"
+    >
+      add to wishlist
+    </button>
+  </section>
+</section>

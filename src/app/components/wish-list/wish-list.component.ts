@@ -10,14 +10,14 @@ import { WishListService } from 'src/app/services/wish-list.service';
 export class WishListComponent {
   constructor(private wishListService: WishListService) {}
 
-  cartItems: Course[] = [];
+  wishItems: Course[] = [];
   ngOnInit(): void {
     this.getWishItems();
   }
 
   getWishItems() {
     this.wishListService.getWish().subscribe((res) => {
-      this.cartItems = res;
+      this.wishItems = res;
     });
   }
 }
