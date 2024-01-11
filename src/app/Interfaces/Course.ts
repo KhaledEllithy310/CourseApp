@@ -5,3 +5,4 @@ export interface Course {
     discountPercentage: string,
     tags: string[]
 }
+

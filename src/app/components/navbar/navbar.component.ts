@@ -1,20 +1,33 @@
-import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { faCartShopping, faHeart ,faTv,faHome} from '@fortawesome/free-solid-svg-icons';
-
+import { Component, OnInit } from '@angular/core';
+import {
+  faCartShopping,
+  faHeart,
+  faTv,
+  faHome,
+} from '@fortawesome/free-solid-svg-icons';
+import { Course } from 'src/app/Interfaces/Course';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
-  // standalone: true,
-  // imports: [MatToolbarModule, MatButtonModule, MatIconModule],
 })
-export class NavbarComponent {
-  faCartShopping = faCartShopping
-  faTv = faTv
-  faHeart = faHeart
-  faHome=faHome
+export class NavbarComponent implements OnInit {
+  faCartShopping = faCartShopping;
+  faTv = faTv;
+  faHeart = faHeart;
+  faHome = faHome;
+  itemsNumber: number = 0;
+
+  constructor(private cartService: CartService) {}
+  ngOnInit(): void {
+    this.getCartNumbers();
+  }
+
+  getCartNumbers() {
+    return this.cartService.getCart().subscribe((res: Course[]) => {
+      this.itemsNumber = res.length;
+    });
+  }
 }

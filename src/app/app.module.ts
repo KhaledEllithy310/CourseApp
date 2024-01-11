@@ -15,6 +15,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BannerpageComponent } from './components/bannerpage/bannerpage.component';
 import { CoursesListComponent } from './components/courses-list/courses-list.component';
 import { CoursesItemComponent } from './components/courses-item/courses-item.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartListComponent } from './components/cart-list/cart-list.component';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,18 @@ import { CoursesItemComponent } from './components/courses-item/courses-item.com
     FooterComponent,
     BannerpageComponent,
     CoursesListComponent,
-    CoursesItemComponent
+    CoursesItemComponent,
+    CartItemComponent,
+    CartListComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, BrowserAnimationsModule, MaterialModule, FontAwesomeModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MaterialModule,
+    FontAwesomeModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
