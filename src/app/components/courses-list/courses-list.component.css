@@ -1,0 +1,12 @@
+.mat-grid-tile {
+  background-color: lightblue;
+}
+
+.item-container {
+  border-radius: 10px;
+  width: 100%;
+}
+
+.mat-grid-tile-content:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.348) !important;
+}

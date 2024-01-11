@@ -1,2 +1,17 @@
 <p>courses-list works!</p>
-<app-courses-item></app-courses-item>
+
+<div class="container">
+  <!-- <mat-grid-list cols="4" [gutterSize]="'20px'">
+    <mat-grid-tile *ngFor="let item of coursesList" class="item-container">
+      <app-courses-item [course]="item"></app-courses-item>
+    </mat-grid-tile>
+  </mat-grid-list> -->
+
+  <section
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4"
+  >
+    <section class="border p-4 rounded" *ngFor="let item of coursesList">
+      <app-courses-item [course]="item"></app-courses-item>
+    </section>
+  </section>
+</div>

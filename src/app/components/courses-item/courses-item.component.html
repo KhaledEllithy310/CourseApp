@@ -1,1 +1,32 @@
-<p>courses-item works!</p>
+
+<section class="courses-item">
+  <h2 class="font-bold text-lg truncate" title="{{ course.courseName }}">
+    {{ course.courseName }}
+  </h2>
+  <section class="flex items-center space-x-2 my-2">
+    <fa-icon [icon]="faUser"></fa-icon>
+
+    <p class="text-sm">{{ course.author }}</p>
+  </section>
+  <section class="flex items-center space-x-2">
+    <p class="font-bold">{{ course.actualPrice }}</p>
+    <p
+      class="text-sm font-semibold bg-yellow-400 rounded-full w-fit flex items-center justify-center py-1 px-2"
+      *ngIf="convertToNumber(course.discountPercentage) > 0"
+    >
+      {{ course.discountPercentage }}
+    </p>
+  </section>
+  <section class="space-x-2 mt-3">
+    <button
+      class="bg-indigo-600 py-1 px-2 capitalize rounded-md text-white hover:bg-indigo-700 transition-all duration-150"
+    >
+      add to cart
+    </button>
+    <button
+      class="bg-red-600 py-1 px-2 capitalize rounded-md text-white hover:bg-red-700 transition-all duration-150"
+    >
+      add to wishlist
+    </button>
+  </section>
+</section>
