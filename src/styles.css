@@ -2,11 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.alert {
+  @apply text-red-700 text-sm px-2 py-1 rounded-md;
+}
 /* You can add global styles to this file, and also import other style files */
 * {
   margin: 0;
-  padding: 0 ;
+  padding: 0;
   box-sizing: border-box;
 }
 

@@ -1,49 +1,67 @@
 <section class="courses-item">
+  <!-- start name -->
   <h2 class="font-bold text-lg truncate" title="{{ course.courseName }}">
     {{ course.courseName }}
   </h2>
+  <!-- end name -->
+
+  <!-- start author -->
   <section class="flex items-center space-x-2 my-2">
     <fa-icon [icon]="faUser"></fa-icon>
-
     <p class="text-sm">{{ course.author }}</p>
   </section>
+  <!-- end author -->
+
+  <!-- start price -->
   <section class="flex items-center space-x-2">
-    <p class="font-bold">{{ course.actualPrice }}</p>
+    <!--if there is no discount show actual price -->
     <p
-      class="text-sm font-semibold bg-yellow-400 rounded-full w-fit flex items-center justify-center py-1 px-2"
-      *ngIf="convertToNumber(course.discountPercentage) > 0"
+      class="font-bold"
+      *ngIf="convertToNumber(course.discountPercentage) <= 0; else discounted"
     >
-      {{ course.discountPercentage }}
+      {{ course.actualPrice }}
     </p>
-  </section>
-  <!-- <section class="my-1 font-bold">
-    <p>
+    <!-- else del the actual price -->
+    <ng-template #discounted>
+      <p class="font-light">
+        <del>{{ course.actualPrice }}</del>
+      </p>
+    </ng-template>
+
+    <!-- show discounted price if there is a discount -->
+    <p class="font-bold" *ngIf="convertToNumber(course.discountPercentage) > 0">
       ₹{{
         (convertToNumber(course.actualPrice.slice(1)) *
           (100 - convertToNumber(course.discountPercentage))) /
           100
       }}
     </p>
-    <p
-      class="text-sm font-semibold bg-yellow-400 rounded-full w-fit flex items-center justify-center py-1 px-2"
-      *ngIf="convertToNumber(course.discountPercentage) > 0"
-    >
-      {{ course.discountPercentage }}
-    </p>
-  </section> -->
-  <p class="my-1">[{{ course.tags }}]</p>
-  <section class="space-x-2 mt-3">
-    <button
-      class="bg-indigo-600 py-1 px-2 capitalize rounded-md text-white hover:bg-indigo-700 transition-all duration-150"
-      (click)="addCourseToCart(course)"
-    >
-      add to cart
-    </button>
-    <button
-      class="bg-red-600 py-1 px-2 capitalize rounded-md text-white hover:bg-red-700 transition-all duration-150"
-      (click)="addCourseToWish(course)"
-    >
-      add to wishlist
-    </button>
   </section>
+  <!-- end price -->
+
+  <!-- start tags -->
+  <p class="my-1">[{{ course.tags }}]</p>
+  <!-- end tags -->
+
+  <!-- start actions -->
+  <section class="flex items-center justify-between mt-3">
+    <section class="space-x-2">
+      <button
+        class="bg-indigo-600 py-1 px-2 capitalize rounded-md text-white hover:bg-indigo-700 transition-all duration-150"
+        (click)="addCourseToCart(course)"
+      >
+        add to cart
+      </button>
+      <button
+        class="bg-red-600 py-1 px-2 capitalize rounded-md text-white hover:bg-red-700 transition-all duration-150"
+        (click)="addCourseToWish(course)"
+      >
+        <fa-icon [icon]="faHeart"></fa-icon>
+      </button>
+    </section>
+    <a [routerLink]="['/courses/', course.courseName]">
+      <fa-icon [icon]="faArrowRight"></fa-icon>
+    </a>
+  </section>
+  <!-- end actions -->
 </section>

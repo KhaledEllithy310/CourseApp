@@ -1,4 +1,6 @@
-<section>
+<!-- show modal to confirm something -->
+
+<section *ngIf="!data.url">
   <h1 mat-dialog-title>{{ data.title }}</h1>
   <mat-dialog-content mat-dialog-content>
     <p>{{ data.massage }}</p>
@@ -7,4 +9,21 @@
     <button mat-button [mat-dialog-close]="false">No Thanks</button>
     <button mat-button [mat-dialog-close]="true">Ok</button>
   </mat-dialog-actions>
+</section>
+
+<!-- show demo of course -->
+
+<section *ngIf="data.url">
+  <h1 mat-dialog-title>{{ data.title }}</h1>
+  <section>
+    <iframe
+      width="560"
+      height="315"
+      [src]="data.url"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </section>
 </section>

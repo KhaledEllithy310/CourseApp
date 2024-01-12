@@ -1,0 +1,44 @@
+<app-bannerpage title="Discover Latest Courses on React"></app-bannerpage>
+<section class="bg-indigo-200 p-4">
+  <a [routerLink]="['/']" class="font-bold underline-offset-1 underline"
+    >All Courses</a
+  >
+  | {{ courseName }}
+</section>
+<div *ngIf="showSaleDate" class="text-center font-semibold py-3 text-lg">
+  <div>Sale ends in: {{ getTimeLeft(targetCourse) }}</div>
+</div>
+<section class="container">
+  <section class="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4">
+    <section class="max-w-md border p-3 rounded">
+      <app-courses-item [course]="targetCourse"></app-courses-item>
+    </section>
+    <section class="">
+      <img
+        src="https://www.freecodecamp.org/news/content/images/2021/07/reactcourse.png"
+        class="object-cover h-60 cursor-pointer"
+        alt="course demo"
+        (click)="
+          openDialog(
+            'https://www.youtube.com/embed/s2skans2dP4?si=LnhsDWUQkKzl6DbI'
+          )
+        "
+      />
+    </section>
+  </section>
+  <section
+    class="fixed inset-0 hidden items-center justify-center backdrop-blur-sm"
+    #videoPlayer
+  >
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/s2skans2dP4?si=LnhsDWUQkKzl6DbI"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </section>
+</section>
+<!-- {{ courseName }} -->

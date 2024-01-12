@@ -34,6 +34,13 @@
       <fa-icon [icon]="faHeart"></fa-icon>
       {{ wishItemsNumber }}
     </button>
+    <button
+      mat-raised-button
+      [routerLink]="['/profile']"
+      routerLinkActive="active"
+    >
+      <fa-icon [icon]="faUser"></fa-icon>
+    </button>
   </section>
   <!-- end navigation icons -->
 </mat-toolbar>

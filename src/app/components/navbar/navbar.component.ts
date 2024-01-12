@@ -4,6 +4,7 @@ import {
   faHeart,
   faTv,
   faHome,
+  faUser,
 } from '@fortawesome/free-solid-svg-icons';
 import { Course } from 'src/app/Interfaces/Course';
 import { CartService } from 'src/app/services/cart.service';
@@ -19,6 +20,7 @@ export class NavbarComponent implements OnInit {
   faTv = faTv;
   faHeart = faHeart;
   faHome = faHome;
+  faUser = faUser;
   wishItemsNumber: number = 0;
   cartItemsNumber: number = 0;
 

@@ -22,7 +22,8 @@ import { WishListComponent } from './components/wish-list/wish-list.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ModalComponent } from './components/modal/modal.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
-
+import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +42,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     WishListComponent,
     ModalComponent,
     CartSummaryComponent,
+    CourseDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,8 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
     BrowserAnimationsModule,
     MaterialModule,
     FontAwesomeModule,
+    ReactiveFormsModule,
+    FormsModule,
     ToastrModule.forRoot(),
   ],
   providers: [],
