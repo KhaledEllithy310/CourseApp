@@ -1,0 +1,40 @@
+<section class="max-w-md mx-auto">
+  <h1 class="text-center py-3 text-2xl font-bold">login</h1>
+  <form
+    #loginForm="ngForm"
+    (ngSubmit)="handleSubmit(loginForm)"
+    class="space-y-4"
+  >
+    <!-- Password -->
+    <div class="space-y-1">
+      <div>
+        <input
+          type="password"
+          id="form3Example1"
+          class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+          placeholder="password"
+          name="password"
+          [(ngModel)]="model.password"
+          #password="ngModel"
+          required
+        />
+      </div>
+      <div
+        class="alert alert-danger p-1 mt-2 mb-0"
+        role="alert"
+        *ngIf="password.invalid && password.dirty"
+      >
+        <div *ngIf="password.errors?.['required']">displayName is required</div>
+      </div>
+    </div>
+
+    <!-- Submit button -->
+    <button
+      type="submit"
+      class="bg-indigo-600 py-1 px-2 capitalize rounded-md text-white hover:bg-indigo-700 transition-all duration-150 w-full"
+      [disabled]="!loginForm.valid"
+    >
+      Login
+    </button>
+  </form>
+</section>

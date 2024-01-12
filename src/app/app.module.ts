@@ -24,6 +24,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { LoginComponent } from './pages/login/login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ModalComponent,
     CartSummaryComponent,
     CourseDetailsComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { WishlistComponent } from './pages/wishlist/wishlist.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CourseDetailsComponent } from './components/course-details/course-details.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {
@@ -30,6 +31,10 @@ const routes: Routes = [
   {
     path: 'courses/:courseName',
     component: CourseDetailsComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
   },
 ];
 
