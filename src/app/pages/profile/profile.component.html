@@ -1,122 +1,242 @@
 <section class="grid grid-cols-1 md:grid-cols-2 py-5">
   <section>
     <img
-      src="https://www.freecodecamp.org/news/content/images/2021/07/reactcourse.png"
+      src="https://static.vecteezy.com/system/resources/previews/019/896/008/original/male-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png"
       alt=""
       class="rounded-full h-32 w-32 mx-auto"
     />
   </section>
   <section class="container">
     <h1 class="text-3xl font-bold text-center">Profile</h1>
-    <form #registerForm="ngForm" (ngSubmit)="handleSubmit(registerForm)">
-      <!-- 2 column grid layout with text inputs for the first and last names -->
-      <div class="row">
-        <div class="">
-          <div class="form-group">
-            <input
-              type="text"
-              id="form3Example1"
-              class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-              placeholder="First name"
-              name="firstName"
-              [(ngModel)]="model.firstName"
-              #firstName="ngModel"
-              required
-              minlength="2"
-              maxlength="20"
-            />
+    <form
+      #profileForm="ngForm"
+      (ngSubmit)="handleSubmit(profileForm)"
+      class="space-y-4"
+    >
+      <!-- Display Name -->
+      <div class="space-y-1">
+        <div>
+          <input
+            type="text"
+            id="form3Example1"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+            placeholder="First name"
+            name="displayName"
+            [(ngModel)]="model.displayName"
+            #displayName="ngModel"
+            required
+            minlength="2"
+            maxlength="20"
+          />
+        </div>
+        <div
+          class="alert alert-danger p-1 mt-2 mb-0"
+          role="alert"
+          *ngIf="displayName.invalid && displayName.dirty"
+        >
+          <div *ngIf="displayName.errors?.['required']">
+            displayName is required
+          </div>
+          <div *ngIf="displayName.errors?.['minlength']">
+            displayName is invalid min length 2 or greater
+          </div>
+          <div *ngIf="displayName.errors?.['maxlength']">
+            displayName is invalid max length 20 or smaller
           </div>
         </div>
-        <!-- first name -->
-        <div class="">
-          <div class="form-group">
-            <input
-              type="text"
-              id="form3Example2"
-              class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-              placeholder="Last name"
-              name="lastName"
-              [(ngModel)]="model.lastName"
-              #lastName="ngModel"
-              required
-              minlength="2"
-              maxlength="20"
-            />
+      </div>
+      <!-- First Name -->
+      <div class="space-y-1">
+        <div>
+          <input
+            type="text"
+            id="form3Example1"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+            placeholder="First name"
+            name="firstName"
+            [(ngModel)]="model.firstName"
+            #firstName="ngModel"
+            required
+            minlength="2"
+            maxlength="20"
+          />
+        </div>
+        <div
+          class="alert alert-danger p-1 mt-2 mb-0"
+          role="alert"
+          *ngIf="firstName.invalid && firstName.dirty"
+        >
+          <div *ngIf="firstName.errors?.['required']">
+            firstName is required
           </div>
+          <div *ngIf="firstName.errors?.['minlength']">
+            firstName is invalid min length 2 or greater
+          </div>
+          <div *ngIf="firstName.errors?.['maxlength']">
+            firstName is invalid max length 20 or smaller
+          </div>
+        </div>
+      </div>
+      <!-- last name -->
+      <div class="">
+        <div class="form-group">
+          <input
+            type="text"
+            id="form3Example2"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+            placeholder="Last name"
+            name="lastName"
+            [(ngModel)]="model.lastName"
+            #lastName="ngModel"
+            required
+            minlength="2"
+            maxlength="20"
+          />
+        </div>
+        <div
+          class="alert alert-danger p-1 mt-2 mb-0"
+          role="alert"
+          *ngIf="lastName.invalid && lastName.dirty"
+        >
+          <div *ngIf="lastName.errors?.['required']">last Name is required</div>
+        </div>
+      </div>
+      <!-- About yourself -->
+      <div class="col-md-6 align-items-center">
+        <div class="form-group">
+          <textarea
+            name="about"
+            [(ngModel)]="model.about"
+            #about="ngModel"
+            rows="2"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+            placeholder="About Yourself"
+            maxlength="100"
+            required
+          ></textarea>
+
           <div
             class="alert alert-danger p-1 mt-2 mb-0"
             role="alert"
-            *ngIf="lastName.invalid && lastName.dirty"
+            *ngIf="about.invalid && about.dirty"
           >
-            <div *ngIf="lastName.errors?.['required']">
-              lastName is required
-            </div>
-            <div *ngIf="lastName.errors?.['minlength']">
-              lastName is invalid min length 2 or greater
-            </div>
-            <div *ngIf="lastName.errors?.['maxlength']">
-              lastName is invalid max length 20 or smaller
+            <div *ngIf="about.errors?.['required']">
+              About Yourself is required
             </div>
           </div>
         </div>
-        <!-- Email input -->
-        <div class="col-md-6 align-items-center">
-          <div class="form-group">
-            <input
-              type="email"
-              id="form3Example3"
-              class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-              placeholder="Email address"
-              name="email"
-              [(ngModel)]="model.email"
-              #email="ngModel"
-              required
-              email
-            />
-          </div>
-          <div class="alert" role="alert" *ngIf="email.invalid && email.dirty">
-            <div *ngIf="email.errors?.['required']">email is required</div>
-            <div *ngIf="email.errors?.['email']">email is invalid</div>
-          </div>
-        </div>
-
-        <!-- Password input -->
-        <section>
-          <div class="">
-            <input
-              type="password"
-              id="form3Example4"
-              class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
-              placeholder="password"
-              name="password"
-              [(ngModel)]="model.password"
-              #password="ngModel"
-              required
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-            />
-          </div>
-          <div
-            class="alert alert-danger p-1 mt-0"
-            role="alert"
-            *ngIf="password.invalid && password.dirty"
-          >
-            <div *ngIf="password.errors?.['required']">
-              password is required
-            </div>
-            <div *ngIf="password.errors?.['pattern']">
-              Must contain at least one number and one uppercase and lowercase
-              letter, and at least 8 or more characters
-            </div>
-          </div>
-        </section>
       </div>
-      <div class="row"></div>
 
+      <!-- Area of Interest -->
+      <div class="form-group">
+        <label>Area of Interest</label>
+        <div *ngFor="let interest of interests">
+          <input
+            type="checkbox"
+            id="{{ interest }}"
+            [(ngModel)]="model.interests[interest]"
+            name="interests[{{ interest }}]"
+          />
+          <label for="{{ interest }}">{{ interest }}</label>
+        </div>
+      </div>
+
+      <!-- Are you a student or a professional? -->
+      <div class="form-group">
+        <label>Are you a student or a professional?</label>
+        <label>
+          <input
+            type="radio"
+            [(ngModel)]="model.status"
+            value="student"
+            name="status"
+          />
+          Student
+        </label>
+        <label>
+          <input
+            type="radio"
+            [(ngModel)]="model.status"
+            value="professional"
+            name="status"
+          />
+          Professional
+        </label>
+      </div>
+
+      <!-- Conditional Fields for Professional -->
+      <div *ngIf="model.status === 'professional'">
+        <div class="form-group">
+          <label>Experience</label>
+          <select
+            [(ngModel)]="model.experience"
+            name="experience"
+            required
+            class="ring-1 ring-inset ring-gray-300"
+          >
+            <option selected value="0-5">0-5</option>
+            <option value="5-10">5-10</option>
+            <option value="10-above">10 & above</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Expertise</label>
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="model.expertise.backend"
+              name="expertiseBackend"
+              [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="profileForm.control.updateValueAndValidity()"
+            />
+            Backend
+          </label>
+          <label>
+            <input
+              type="checkbox"
+              [(ngModel)]="model.expertise.frontend"
+              name="expertiseFrontend"
+              [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="profileForm.control.updateValueAndValidity()"
+            />
+            Frontend
+          </label>
+        </div>
+        <div
+          class="alert alert-danger p-1 mt-2 mb-0"
+          role="alert"
+          *ngIf="
+            profileForm.submitted &&
+            profileForm.hasError('noExpertiseSelected', 'expertise')
+          "
+        >
+          Please select at least one expertise.
+        </div>
+        <div>
+          <textarea
+            name="role"
+            [(ngModel)]="model.role"
+            #role="ngModel"
+            rows="2"
+            class="block w-full rounded-md border-0 p-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6"
+            placeholder="Mention Your Role"
+            maxlength="100"
+            required
+          ></textarea>
+          <div
+            class="alert alert-danger p-1 mt-2 mb-0"
+            role="alert"
+            *ngIf="firstName.invalid && firstName.dirty"
+          >
+            <div *ngIf="role.errors?.['required']">your role is required</div>
+          </div>
+        </div>
+      </div>
       <!-- Submit button -->
       <button
         type="submit"
         class="bg-indigo-600 py-1 px-2 capitalize rounded-md text-white hover:bg-indigo-700 transition-all duration-150 w-full"
-        [disabled]="!registerForm.valid"
+        [disabled]="!profileForm.valid && !isValid"
       >
         Save
       </button>
