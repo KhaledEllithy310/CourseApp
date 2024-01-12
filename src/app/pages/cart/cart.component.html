@@ -1,1 +1,30 @@
-<app-cart-list></app-cart-list>
+<app-bannerpage title="Shopping Cart"></app-bannerpage>
+<section class="container">
+  <section class="grid grid-cols-1 md:grid-cols-4 mt-4 gap-5">
+    <!-- display cart list -->
+    <ng-container *ngIf="cartItems.length > 0; else elseBlock">
+      <section class="col-span-3">
+        <app-cart-list></app-cart-list>
+      </section>
+    </ng-container>
+    <!--end display cart list -->
+
+    <!--start display cart summary -->
+    <ng-container *ngIf="cartItems.length > 0">
+      <section>
+        <app-cart-summary></app-cart-summary>
+      </section>
+    </ng-container>
+    <!--end display cart summary -->
+
+    <!-- start show message -->
+    <ng-template #elseBlock>
+      <p
+        class="text-center capitalize font-bold text-2xl text-neutral-500 col-span-4"
+      >
+        cart is empty
+      </p>
+    </ng-template>
+    <!-- end show message -->
+  </section>
+</section>

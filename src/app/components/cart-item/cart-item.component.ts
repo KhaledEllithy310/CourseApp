@@ -3,6 +3,7 @@ import { Course } from 'src/app/Interfaces/Course';
 import { CartService } from 'src/app/services/cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
+import { WishListService } from 'src/app/services/wish-list.service';
 
 @Component({
   selector: 'app-cart-item',
@@ -10,7 +11,11 @@ import { ModalComponent } from '../modal/modal.component';
   styleUrls: ['./cart-item.component.css'],
 })
 export class CartItemComponent {
-  constructor(private cartService: CartService, public dialog: MatDialog) {}
+  constructor(
+    private cartService: CartService,
+    public dialog: MatDialog,
+    private wishListService: WishListService
+  ) {}
 
   @Input() cartItem: Course = {
     courseName: '',
@@ -23,7 +28,7 @@ export class CartItemComponent {
   removeCourseFromCart(cartItem: Course) {
     this.cartService.deleteFromCart(cartItem.courseName);
   }
-
+  //show modal for user to confirm delete
   openDialog(cartItem: Course) {
     const dialogRef = this.dialog.open(ModalComponent, {
       data: {
@@ -42,5 +47,19 @@ export class CartItemComponent {
         console.log('false');
       }
     });
+  }
+
+  // Logic to move Course From Cart To Wish
+  moveCourseFromCartToWish(cartItem: Course) {
+    //add course to wish
+    this.wishListService?.addToWish(cartItem)?.subscribe((res) => {
+      console.log(res);
+    });
+    if (this.wishListService.isCourseExistInWishlist) {
+      this.wishListService.isCourseExistInWishlist = false;
+      return;
+    }
+    //remove course from cart
+    this.cartService.deleteFromCart(cartItem.courseName);
   }
 }

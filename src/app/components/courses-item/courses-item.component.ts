@@ -29,15 +29,11 @@ export class CoursesItemComponent {
 
   addCourseToCart(course: Course) {
     // Logic to add course to cart
-
-    this.cartService?.addToCart(course)?.subscribe((res) => {
-      console.log(res);
-    });
+    this.cartService?.addToCart(course);
   }
 
   addCourseToWish(course: Course) {
     // Logic to add course to wish list
-
     this.wishListService?.addToWish(course)?.subscribe((res) => {
       console.log(res);
     });

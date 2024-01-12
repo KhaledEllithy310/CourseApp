@@ -8,6 +8,8 @@ import { NotifyService } from './notify.service';
 })
 export class WishListService {
   private wishItems = new BehaviorSubject<Course[]>([]);
+  //flag to check if the course is already in the WishList
+  isCourseExistInWishlist = false;
 
   constructor(private notifyService: NotifyService) {}
 
@@ -19,7 +21,7 @@ export class WishListService {
     // check if the course is already in the wish
     if (isExist) {
       this.notifyService.info('this course is already in the wish');
-
+      this.isCourseExistInWishlist = true;
       return;
     }
     // add the course to the wish

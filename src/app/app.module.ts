@@ -21,6 +21,7 @@ import { WishItemComponent } from './components/wish-item/wish-item.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
 import { ToastrModule } from 'ngx-toastr';
 import { ModalComponent } from './components/modal/modal.component';
+import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { ModalComponent } from './components/modal/modal.component';
     WishItemComponent,
     WishListComponent,
     ModalComponent,
+    CartSummaryComponent,
   ],
   imports: [
     BrowserModule,

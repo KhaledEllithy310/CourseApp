@@ -1,9 +1,12 @@
-<section class="container">
   <section
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4"
+    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 border rounded-md"
   >
-    <section class="border p-4 rounded" *ngFor="let item of cartItems">
-      <app-cart-item [cartItem]="item"></app-cart-item>
-    </section>
+    <!-- start display cart items -->
+    <ng-container>
+      <section class="border p-3 rounded" *ngFor="let item of cartItems">
+        <app-cart-item [cartItem]="item"></app-cart-item>
+      </section>
+    </ng-container>
+    <!-- end display cart items -->
+
   </section>
-</section>
