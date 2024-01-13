@@ -4,7 +4,7 @@ import { Course } from 'src/app/Interfaces/Course';
 import { WishListService } from 'src/app/services/wish-list.service';
 import { ModalComponent } from '../modal/modal.component';
 import { CartService } from 'src/app/services/cart.service';
-
+import { faUser } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-wish-item',
   templateUrl: './wish-item.component.html',
@@ -16,7 +16,8 @@ export class WishItemComponent {
     public dialog: MatDialog,
     private cartService: CartService
   ) {}
-
+  wishItems: Course[] = [];
+  faUser = faUser;
   @Input() wishItem: Course = {
     courseName: '',
     author: '',
@@ -24,6 +25,10 @@ export class WishItemComponent {
     discountPercentage: '',
     tags: [],
   };
+
+  ngOnInit() {
+    this.getWishItems();
+  }
 
   removeCourseFromWish(wishItem: Course) {
     this.wishListService.deleteFromWish(wishItem.courseName);
@@ -53,8 +58,8 @@ export class WishItemComponent {
   // Logic to move Course From Wish To Cart
   moveCourseFromWishToCart(wishItem: Course) {
     //add course to cart
-    this.cartService.addToCart(wishItem)
-  
+    this.cartService.addToCart(wishItem);
+
     console.log('isCourseExistInCart', this.cartService.isCourseExistInCart);
 
     if (this.cartService.isCourseExistInCart) {
@@ -63,5 +68,11 @@ export class WishItemComponent {
     }
     //remove course from wish
     this.wishListService.deleteFromWish(wishItem.courseName);
+  }
+
+  getWishItems() {
+    this.wishListService.getWish().subscribe((res) => {
+      this.wishItems = res;
+    });
   }
 }

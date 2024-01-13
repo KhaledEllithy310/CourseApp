@@ -2,10 +2,12 @@
   <h2 class="font-bold text-lg truncate" title="{{ wishItem.courseName }}">
     {{ wishItem.courseName }}
   </h2>
-  <section class="flex items-center space-x-2 my-2">
-    <!-- <fa-icon [icon]="faUser"></fa-icon> -->
-
-    <p class="text-sm">{{ wishItem.author }}</p>
+  <section class="flex items-center space-x-2 my-2 justify-between">
+    <section class="flex items-center space-x-2">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <p class="text-sm">{{ wishItem.author }}</p>
+    </section>
+    <p *ngIf="wishItems.includes(wishItem)" class="text-yellow-400">★</p>
   </section>
   <section class="flex items-center space-x-2">
     <p class="font-bold">{{ wishItem.actualPrice }}</p>

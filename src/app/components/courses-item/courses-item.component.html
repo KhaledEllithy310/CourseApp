@@ -6,9 +6,12 @@
   <!-- end name -->
 
   <!-- start author -->
-  <section class="flex items-center space-x-2 my-2">
-    <fa-icon [icon]="faUser"></fa-icon>
-    <p class="text-sm">{{ course.author }}</p>
+  <section class="flex items-center space-x-2 my-2 justify-between">
+    <section class="flex items-center space-x-2">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <p class="text-sm">{{ course.author }}</p>
+    </section>
+    <p *ngIf="wishItems.includes(course)" class="text-yellow-400">★</p>
   </section>
   <!-- end author -->
 

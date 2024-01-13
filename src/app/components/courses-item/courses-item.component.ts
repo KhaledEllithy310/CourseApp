@@ -23,12 +23,16 @@ export class CoursesItemComponent {
     discountPercentage: '',
     tags: [],
   };
+  wishItems: Course[] = [];
 
   constructor(
     private cartService: CartService,
     private wishListService: WishListService
   ) {}
 
+  ngOnInit() {
+    this.getWishItems();
+  }
   convertToNumber(value: string) {
     return parseInt(value);
   }
@@ -41,5 +45,11 @@ export class CoursesItemComponent {
   addCourseToWish(course: Course) {
     // Logic to add course to wish list
     this.wishListService?.addToWish(course);
+  }
+
+  getWishItems() {
+    this.wishListService.getWish().subscribe((res) => {
+      this.wishItems = res;
+    });
   }
 }
