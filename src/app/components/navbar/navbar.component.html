@@ -45,8 +45,18 @@
       mat-raised-button
       [routerLink]="['/login']"
       routerLinkActive="active"
+      *ngIf="!this.authService.checkLogin()"
     >
       login
+    </button>
+    <button
+      mat-raised-button
+      [routerLink]="['/login']"
+      routerLinkActive="active"
+      *ngIf="this.authService.checkLogin()"
+      (click)="logout()"
+    >
+      logout
     </button>
   </section>
   <!-- end navigation icons -->
