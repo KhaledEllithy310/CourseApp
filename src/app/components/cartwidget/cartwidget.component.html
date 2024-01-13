@@ -51,11 +51,12 @@
       </section>
     </section>
     <div class="grid grid-cols-1 gap-4 mt-3">
-      <p>Total Price : {{ totalActualPrice }}</p>
-      <a
+      <p>Total Price : ₹{{ totalActualPrice }}</p>
+      <button
         routerLink="/cart"
         class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium text-center text-white bg-indigo-600 rounded-lg hover:bg-indigo-700 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
         data-drawer-hide="drawer-right-example"
+        aria-controls="drawer-right-example"
         >GO TO CHECKOUT
         <svg
           class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
@@ -71,7 +72,7 @@
             stroke-width="2"
             d="M1 5h12m0 0L9 1m4 4L9 9"
           /></svg
-      ></a>
+      ></button>
     </div>
   </ng-container>
 

@@ -4,7 +4,7 @@ import { CartService } from 'src/app/services/cart.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalComponent } from '../modal/modal.component';
 import { WishListService } from 'src/app/services/wish-list.service';
-
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
@@ -17,6 +17,7 @@ export class CartItemComponent {
     private wishListService: WishListService
   ) {}
 
+  faTrash = faTrash;
   @Input() cartItem: Course = {
     courseName: '',
     author: '',
@@ -59,5 +60,9 @@ export class CartItemComponent {
     }
     //remove course from cart
     this.cartService.deleteFromCart(cartItem.courseName);
+  }
+
+  convertToNumber(value: string) {
+    return parseInt(value);
   }
 }

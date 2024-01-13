@@ -4,7 +4,7 @@ import { Course } from 'src/app/Interfaces/Course';
 import { WishListService } from 'src/app/services/wish-list.service';
 import { ModalComponent } from '../modal/modal.component';
 import { CartService } from 'src/app/services/cart.service';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faTrash, faUser } from '@fortawesome/free-solid-svg-icons';
 @Component({
   selector: 'app-wish-item',
   templateUrl: './wish-item.component.html',
@@ -16,6 +16,8 @@ export class WishItemComponent {
     public dialog: MatDialog,
     private cartService: CartService
   ) {}
+  faTrash = faTrash;
+
   wishItems: Course[] = [];
   faUser = faUser;
   @Input() wishItem: Course = {
@@ -74,5 +76,9 @@ export class WishItemComponent {
     this.wishListService.getWish().subscribe((res) => {
       this.wishItems = res;
     });
+  }
+
+  convertToNumber(value: string) {
+    return parseInt(value);
   }
 }

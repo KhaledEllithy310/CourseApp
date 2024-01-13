@@ -9,27 +9,45 @@
     </section>
     <p *ngIf="wishItems.includes(wishItem)" class="text-yellow-400">★</p>
   </section>
+  <!-- start price -->
   <section class="flex items-center space-x-2">
-    <p class="font-bold">{{ wishItem.actualPrice }}</p>
+    <!--if there is no discount show actual price -->
     <p
-      class="text-sm font-semibold bg-yellow-400 rounded-full w-fit flex items-center justify-center py-1 px-2"
+      class="font-bold"
+      *ngIf="convertToNumber(wishItem.discountPercentage) <= 0; else discounted"
     >
-      {{ wishItem.discountPercentage }}
+      {{ wishItem.actualPrice }}
+    </p>
+    <!-- else del the actual price -->
+    <ng-template #discounted>
+      <p class="font-light">
+        <del>{{ wishItem.actualPrice }}</del>
+      </p>
+    </ng-template>
+
+    <!-- show discounted price if there is a discount -->
+    <p class="font-bold" *ngIf="convertToNumber(wishItem.discountPercentage) > 0">
+      ₹{{
+        (convertToNumber(wishItem.actualPrice.slice(1)) *
+          (100 - convertToNumber(wishItem.discountPercentage))) /
+          100
+      }}
     </p>
   </section>
+  <!-- end price -->
   <p class="my-1">[{{ wishItem.tags }}]</p>
   <section class="space-x-2 mt-3">
     <button
       class="bg-indigo-600 py-1 px-2 capitalize rounded-md text-white hover:bg-indigo-700 transition-all duration-150"
-      (click)="openDialog(wishItem)"
-    >
-      remove
-    </button>
-    <button
-      class="bg-red-600 py-1 px-2 capitalize rounded-md text-white hover:bg-red-700 transition-all duration-150"
       (click)="moveCourseFromWishToCart(wishItem)"
     >
       add to cart
+    </button>
+    <button
+      class="bg-red-600 py-1 px-2 capitalize rounded-md text-white hover:bg-red-700 transition-all duration-150"
+      (click)="openDialog(wishItem)"
+    >
+      <fa-icon [icon]="faTrash"></fa-icon>
     </button>
   </section>
 </section>
