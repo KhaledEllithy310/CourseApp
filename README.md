@@ -1,27 +1,44 @@
-# Courses
+# Courses App — Angular App
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.11.
+## 👁️ Project Preview
 
-## Development server
+Live Preview 👉 <https://courses-app-wheat.vercel.app/>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 📝 Project Description & features
 
-## Code scaffolding
+This project involves building an Angular application for selling courses. The application should have the following functionalities:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Homepage: The user should land on the homepage by default. The homepage should display a list of courses with details like the course name, author, actual price, discount percentage, and tags. Each course should have two actions: "Add To Cart" and "Add to Wishlist".
+- My Wishlist: This page should display all the courses added to the wishlist. Courses can be removed from the wishlist and added to the cart.
+- Cart Details: This page should display all the courses added to the cart and the total cost. It should also have an action 'Go to Checkout', which takes the user to the cart page.
+- My Profile Page: This page should display the user's profile details. The user should be able to edit their details and save changes.
+- Search Bar: Users should be able to search for courses by the course title, author, or tags.
+- Sorting: Users should be able to sort the courses by price, either lowest to highest or highest to lowest.
+- Real-time Cart Updates: The cart widget on the right side should be updated in real time to show the list of courses added to the cart and the total cost.
 
-## Build
+## 🛠️ Project Tools
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- TypeScript
+- Angular
+- Tailwind CSS
+- Angular Material
+- ng-Toastr
 
-## Running unit tests
+## ✨ Project Skills applied
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Protected Router
+- Handle Errors Routes
+- reusable Component
+- pixel-perfect
+- Search Bar
+- Sorting By Price
+- Pagination
+- forms validation
 
-## Running end-to-end tests
+- 🌐 Website 👉 <https://khaledellithy-portfolio.vercel.app/>
+- 👔 LinkedIn 👉 <https://www.linkedin.com/in/khaledashrafellithy/>
+- 🌟 Github 👉 <https://github.com/KhaledEllithy310>
+- 📧 Email 👉 <khaledellessy310@gmail.com>
+- ☎️ Whatsapp 👉 (+20) 112-461-2043
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+2024 © Khaled Ellithy
