@@ -20,3 +20,9 @@ body {
   margin: 0;
   font-family: Roboto, 'Helvetica Neue', sans-serif;
 } */
+
+.h-cart {
+  height: 430px;
+  max-height: 430px;
+  overflow: scroll;
+}

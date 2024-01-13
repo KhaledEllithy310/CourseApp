@@ -1,12 +1,28 @@
-  <section
-    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 border rounded-md"
-  >
-    <!-- start display cart items -->
-    <ng-container>
-      <section class="border p-3 rounded" *ngFor="let item of cartItems">
-        <app-cart-item [cartItem]="item"></app-cart-item>
-      </section>
-    </ng-container>
-    <!-- end display cart items -->
-
-  </section>
+<section
+  class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 border rounded-md"
+>
+  <!-- start display cart items -->
+  <ng-container>
+    <section
+      class="border p-3 rounded"
+      *ngFor="
+        let item of cartItems
+          | paginate
+            : {
+                itemsPerPage: itemsPerPage,
+                currentPage: p,
+                totalItems: totalLength
+              }
+      "
+    >
+      <app-cart-item [cartItem]="item"></app-cart-item>
+    </section>
+  </ng-container>
+  <!-- end display cart items -->
+</section>
+<section class="text-center mx-auto py-5">
+  <pagination-controls
+    class="text-center my-pagination"
+    (pageChange)="p = $event"
+  ></pagination-controls>
+</section>

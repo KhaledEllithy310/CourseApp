@@ -1,4 +1,4 @@
-<section class="courses-item">
+<section class="p-2">
   <h2 class="font-bold text-lg truncate" title="{{ cartItem.courseName }}">
     {{ cartItem.courseName }}
   </h2>
@@ -24,7 +24,8 @@
       remove
     </button>
     <button
-      class="bg-red-600 py-1 px-2 capitalize rounded-md text-white hover:bg-red-700 transition-all duration-150" (click)="moveCourseFromCartToWish(cartItem)"
+      class="bg-red-600 py-1 px-2 capitalize rounded-md text-white hover:bg-red-700 transition-all duration-150"
+      (click)="moveCourseFromCartToWish(cartItem)"
     >
       add to wishlist
     </button>

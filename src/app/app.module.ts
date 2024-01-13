@@ -26,6 +26,9 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { CartwidgetComponent } from './components/cartwidget/cartwidget.component'; // <-- import the module
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,6 +50,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     CourseDetailsComponent,
     LoginComponent,
     NotFoundComponent,
+    CartwidgetComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,6 +60,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     FontAwesomeModule,
     ReactiveFormsModule,
     FormsModule,
+    NgxPaginationModule,
     ToastrModule.forRoot(),
   ],
   providers: [],

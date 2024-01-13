@@ -3,16 +3,16 @@ import { Course } from 'src/app/Interfaces/Course';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
-  selector: 'app-cart-list',
-  templateUrl: './cart-list.component.html',
-  styleUrls: ['./cart-list.component.css'],
+  selector: 'app-cartwidget',
+  templateUrl: './cartwidget.component.html',
+  styleUrls: ['./cartwidget.component.css'],
 })
-export class CartListComponent {
+export class CartwidgetComponent {
   constructor(private cartService: CartService) {}
-  totalLength: number = 0;
-  p: number = 1;
-  itemsPerPage: number = 4;
+
   cartItems: Course[] = [];
+  totalActualPrice: number = 0;
+
   ngOnInit(): void {
     this.getCartItems();
   }
@@ -20,7 +20,14 @@ export class CartListComponent {
   getCartItems() {
     this.cartService.getCart().subscribe((res) => {
       this.cartItems = res;
-      this.totalLength = res.length;
+      this.totalCartValue();
     });
+  }
+
+  totalCartValue() {
+    this.totalActualPrice = this.cartItems.reduce(
+      (sum, course) => sum + +course.actualPrice.slice(1),
+      0
+    );
   }
 }

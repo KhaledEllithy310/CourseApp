@@ -2,3 +2,18 @@
 <section class="mt-16">
   <router-outlet></router-outlet>
 </section>
+<app-cartwidget></app-cartwidget>
+
+<!-- drawer init and toggle -->
+<div class="text-center fixed top-20 right-3">
+  <button
+    class="text-white bg-indigo-700 hover:bg-indigo-800 focus:ring-4 focus:ring-indigo-300 font-medium rounded-md text-sm px-2 py-1 mb-2 dark:bg-indigo-600 dark:hover:bg-indigo-700 focus:outline-none dark:focus:ring-indigo-800"
+    type="button"
+    data-drawer-target="drawer-right-example"
+    data-drawer-show="drawer-right-example"
+    data-drawer-placement="right"
+    aria-controls="drawer-right-example"
+  >
+    <fa-icon [icon]="faCartShopping"></fa-icon>
+  </button>
+</div>

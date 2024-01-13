@@ -1,9 +1,50 @@
 <section class="container">
-  <section
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4"
-  >
-    <section class="border p-3 rounded" *ngFor="let item of coursesList">
-      <app-courses-item [course]="item"></app-courses-item>
-    </section>
+  <section class="flex gap-3 justify-end mt-2">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      placeholder="Search..."
+      (input)="searchHandler()"
+      class="ring-1 ring-gray-400 rounded-md px-2"
+    />
+
+    <select
+      (change)="sortCourses($event)"
+      class="ring-1 ring-gray-400 rounded-md px-2"
+    >
+      <option value="lowToHigh">Sort By Price</option>
+      <option value="lowToHigh">Price: Low to High</option>
+      <option value="highToLow">Price: High to Low</option>
+    </select>
   </section>
+  <ng-container *ngIf="filteredCoursesList.length; else noCourses">
+    <section
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4"
+    >
+      <section
+        class="border p-3 rounded"
+        *ngFor="
+          let item of filteredCoursesList
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: p,
+                  totalItems: totalLength
+                }
+        "
+      >
+        <app-courses-item [course]="item"></app-courses-item>
+      </section>
+    </section>
+    <section class="text-center mx-auto py-5">
+      <pagination-controls
+        class="text-center my-pagination"
+        (pageChange)="p = $event"
+      ></pagination-controls>
+    </section>
+  </ng-container>
+
+  <ng-template #noCourses>
+    <p class="font-bold text-center p-2 text-xl">There are no courses found</p>
+  </ng-template>
 </section>

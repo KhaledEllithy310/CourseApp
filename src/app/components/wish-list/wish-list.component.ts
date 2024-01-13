@@ -9,7 +9,9 @@ import { WishListService } from 'src/app/services/wish-list.service';
 })
 export class WishListComponent {
   constructor(private wishListService: WishListService) {}
-
+  totalLength: number = 0;
+  p: number = 1;
+  itemsPerPage: number = 4;
   wishItems: Course[] = [];
   ngOnInit(): void {
     this.getWishItems();
@@ -18,6 +20,7 @@ export class WishListComponent {
   getWishItems() {
     this.wishListService.getWish().subscribe((res) => {
       this.wishItems = res;
+      this.totalLength = res.length;
     });
   }
 }

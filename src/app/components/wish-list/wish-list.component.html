@@ -1,9 +1,43 @@
+<app-bannerpage title="Wish List"></app-bannerpage>
+
 <section class="container">
-  <section
-    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4"
-  >
-    <section class="border p-3 rounded" *ngFor="let item of wishItems">
-      <app-wish-item [wishItem]="item"></app-wish-item>
+  <!-- display wish list -->
+  <ng-container *ngIf="wishItems.length > 0; else elseBlock">
+    <section
+      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4 mt-4"
+    >
+      <section
+        class="border p-3 rounded"
+        *ngFor="
+          let item of wishItems
+            | paginate
+              : {
+                  itemsPerPage: itemsPerPage,
+                  currentPage: p,
+                  totalItems: totalLength
+                }
+        "
+      >
+        <app-wish-item [wishItem]="item"></app-wish-item>
+      </section>
     </section>
-  </section>
+
+    <section class="text-center mx-auto py-5">
+      <pagination-controls
+        class="text-center my-pagination"
+        (pageChange)="p = $event"
+      ></pagination-controls>
+    </section>
+  </ng-container>
+  <!--end display wish list -->
+
+  <!-- start show message -->
+  <ng-template #elseBlock>
+    <p
+      class="text-center capitalize font-bold text-2xl text-neutral-500 col-span-4"
+    >
+      wish List is empty
+    </p>
+  </ng-template>
+  <!-- end show message -->
 </section>
