@@ -8,6 +8,7 @@ import { CourseDetailsComponent } from './components/course-details/course-detai
 import { LoginComponent } from './pages/login/login.component';
 import { authGuard } from './guards/auth.guard';
 import { loggedInGuard } from './guards/logged-in.guard';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     canActivate: [loggedInGuard],
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
   },
 ];
 
