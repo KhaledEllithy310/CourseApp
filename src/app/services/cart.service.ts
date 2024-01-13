@@ -2,19 +2,24 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Course } from '../Interfaces/Course';
 import { NotifyService } from './notify.service';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  constructor(private notifyService: NotifyService) {}
-  isAuth = localStorage.getItem('isAuth');
+  constructor(
+    private notifyService: NotifyService,
+    private authService: AuthService
+  ) {}
 
   private cartItems = new BehaviorSubject<Course[]>([]);
+
   //flag to check if the course is already in the cart
   isCourseExistInCart = false;
   addToCart(course: Course) {
-    if (this.isAuth === 'true') {
+    let auth = this.authService.checkLogin();
+    if (auth) {
       // Logic to add product to cart and update the BehaviorSubject
       const isExist = this.cartItems.value.find(
         (item) => item.courseName === course.courseName
@@ -33,8 +38,6 @@ export class CartService {
   }
 
   deleteFromCart(courseName: string) {
-    console.log('***function deleteFromCart***');
-
     // Logic to remove product from cart and update the BehaviorSubject
     this.cartItems.next([
       ...this.cartItems.value.filter((item) => item.courseName !== courseName),
@@ -44,12 +47,10 @@ export class CartService {
 
   //get the cart items
   getCart() {
-    console.log('***function getCart***');
     return this.cartItems.asObservable();
   }
 
   clearCart() {
-    console.log('***function clearCart***');
     this.cartItems.next([]);
   }
 }

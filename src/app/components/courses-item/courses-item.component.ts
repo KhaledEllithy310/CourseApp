@@ -40,8 +40,6 @@ export class CoursesItemComponent {
 
   addCourseToWish(course: Course) {
     // Logic to add course to wish list
-    this.wishListService?.addToWish(course)?.subscribe((res) => {
-      console.log(res);
-    });
+    this.wishListService?.addToWish(course);
   }
 }

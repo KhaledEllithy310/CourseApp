@@ -52,9 +52,7 @@ export class CartItemComponent {
   // Logic to move Course From Cart To Wish
   moveCourseFromCartToWish(cartItem: Course) {
     //add course to wish
-    this.wishListService?.addToWish(cartItem)?.subscribe((res) => {
-      console.log(res);
-    });
+    this.wishListService?.addToWish(cartItem);
     if (this.wishListService.isCourseExistInWishlist) {
       this.wishListService.isCourseExistInWishlist = false;
       return;
