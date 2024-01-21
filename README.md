@@ -35,6 +35,15 @@ This project involves building an Angular application for selling courses. The a
 - Pagination
 - forms validation
 
+## 🗝️ How to run the app locally?
+
+To run the app locally,
+
+- First fork and clone the repository.
+- Then change to the directory where the repository is cloned.
+- Run `npm install` to install the dependencies.
+- Run `ng serve` to run the application.
+
 - 🌐 Website 👉 <https://khaledellithy-portfolio.vercel.app/>
 - 👔 LinkedIn 👉 <https://www.linkedin.com/in/khaledashrafellithy/>
 - 🌟 Github 👉 <https://github.com/KhaledEllithy310>
