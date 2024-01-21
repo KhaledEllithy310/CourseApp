@@ -1,4 +1,4 @@
-# Courses App — Angular App
+# Selling Courses— Angular App
 
 ## 👁️ Project Preview
 
