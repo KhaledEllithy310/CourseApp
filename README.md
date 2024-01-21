@@ -44,6 +44,7 @@ To run the app locally,
 - Run `npm install` to install the dependencies.
 - Run `ng serve` to run the application.
 
+
 - 🌐 Website 👉 <https://khaledellithy-portfolio.vercel.app/>
 - 👔 LinkedIn 👉 <https://www.linkedin.com/in/khaledashrafellithy/>
 - 🌟 Github 👉 <https://github.com/KhaledEllithy310>
