@@ -14,7 +14,7 @@ This project involves building an Angular application for selling courses. The a
 - My Profile Page: This page should display the user's profile details. The user should be able to edit their details and save changes.
 - Search Bar: Users should be able to search for courses by the course title, author, or tags.
 - Sorting: Users should be able to sort the courses by price, either lowest to highest or highest to lowest.
-- Real-time Cart Updates: The cart widget on the right side should be updated in real time to show the list of courses added to the cart and the total cost.
+- Real-time Cart Updates: The cart widget on the right side should be updated in real-time to show the list of courses added to the cart and the total cost.
 
 ## 🛠️ Project Tools
 
@@ -44,6 +44,7 @@ To run the app locally,
 - Run `npm install` to install the dependencies.
 - Run `ng serve` to run the application.
 
+## ☎️ Contact
 
 - 🌐 Website 👉 <https://khaledellithy-portfolio.vercel.app/>
 - 👔 LinkedIn 👉 <https://www.linkedin.com/in/khaledashrafellithy/>
